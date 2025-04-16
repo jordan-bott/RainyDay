@@ -8,7 +8,7 @@ import {
 } from '@clerk/nextjs'
 import { ThemeProvider } from '../providers/theme-provider'
 import ClerkProvider from '../providers/clerk-provider'
-import { Geist, Geist_Mono, Montserrat } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import './globals.css'
 import Squiggles from '@/components/Squiggles'
 

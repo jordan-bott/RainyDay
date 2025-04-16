@@ -10,10 +10,17 @@ export default function _ClerkProvider({
   children: React.ReactNode
 }) {
   const { resolvedTheme } = useTheme()
+  const variables = {
+    colorPrimary: '#4744ff',
+  }
 
   return (
     <ClerkProvider
-      appearance={resolvedTheme === 'dark' ? { baseTheme: dark } : undefined}
+      appearance={
+        resolvedTheme === 'dark'
+          ? { baseTheme: dark, variables: variables }
+          : { variables: variables }
+      }
     >
       {children}
     </ClerkProvider>
