@@ -52,7 +52,7 @@ export default function RootLayout({
                 <UserButton />
               </SignedIn>
             </header>
-            <div className="bg-lightBG dark:bg-darkBG h-[92vh] flow-root w-[100vw] overflow-hidden">
+            <div className="bg-lightBG dark:bg-darkBG h-[92vh] w-[100vw] overflow-hidden">
               <Squiggles />
               <div className="fixed z-40 w-[100vw] h-full top-[8vh] left-0">
                 {children}
