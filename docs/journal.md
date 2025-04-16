@@ -14,6 +14,8 @@ Through this morning I had been working through Next.js tutorials, as this was m
   - This surprisingly gave me the most trouble! I decided to use TailwindCSS for this project, and faced a bit of difficulty getting Tailwind to follow my theme picker and not my system settings. After quite a bit of trouble shooting, figured out that it was a single line missing in my CSS file that tells it to watch for manually changing themes. Once I figured out this hiccup, everything was working great! Even declared some custom colors for each theme (light & dark).
 - Created background squiggly lines!
   - This was a bit of a rabbit hole, but I got myself out relatively quickly. I wanted to push my CSS researching skills to see if I could make a simple squiggly design for the background. I'm pleased with how it turned out, and learned a bit more about CSS along the way.
+- Switched global font to Montserrat
+  - So nice that this is auto changed on the clerk components as well!
 
 **AH-HA!💡**
 
