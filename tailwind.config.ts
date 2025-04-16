@@ -6,14 +6,13 @@ const config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+
   theme: {
-    extend: {
-      fontFamily: {},
-      colors: {},
-    },
+    extend: {},
+    colors: {},
   },
   plugins: [],
-  darkMode: 'media',
+  darkMode: 'class',
 } satisfies Config
 
 export default config
