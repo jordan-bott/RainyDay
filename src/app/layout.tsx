@@ -10,6 +10,7 @@ import { ThemeProvider } from '../providers/theme-provider'
 import ClerkProvider from '../providers/clerk-provider'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
+import Squiggles from '@/components/Squiggles'
 
 // components
 import Nav from '@/components/Nav'
@@ -41,7 +42,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" enableSystem>
           <ClerkProvider>
-            <header className="flex justify-end items-center p-4 gap-4 h-16 bg-lightBG dark:bg-darkBG">
+            <header className="flex justify-end items-center p-4 gap-4 h-[8vh] bg-lightBG dark:bg-darkBG">
               <Nav />
               <SignedOut>
                 <SignInButton />
@@ -51,7 +52,12 @@ export default function RootLayout({
                 <UserButton />
               </SignedIn>
             </header>
-            {children}
+            <div className="bg-lightBG dark:bg-darkBG h-[92vh]">
+              <Squiggles />
+              <div className="fixed z-40 w-[100vw] h-[92vh] top-[8vh] left-0">
+                {children}
+              </div>
+            </div>
           </ClerkProvider>
         </ThemeProvider>
       </body>
