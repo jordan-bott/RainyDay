@@ -63,3 +63,39 @@ Not yet 😬
 
 - [TailwindCSS Docs](https://tailwindcss.com/docs/installation/framework-guides/nextjs)
 - [Clerk Middleware](https://clerk.com/docs/references/nextjs/clerk-middleware)
+
+## Wednesday April 16
+
+### Today I worked on:
+
+- Building out the `/dashboard` page. It's protected, and redirects to sign-in when someone is not authenticated.
+  - Shows the session ID using `useSession()` hook written by Clerk
+
+**AH-HA!💡**
+
+**🎉 Celebrations 🎉**
+
+### Bugs encountered 🐛🐞🐜 :
+
+🪲
+
+**\~Solution~**
+
+### References Used Today:
+
+- [useSession() Clerk](https://clerk.com/docs/hooks/use-session)
+- [TailwindCSS Docs](https://tailwindcss.com/docs/installation/framework-guides/nextjs)
+
+### Any Blockers:
+
+Not yet 😬
+
+### Next I'm working on:
+
+- Homepage
+- Tutorial for a Theme Switcher using Clerk
+
+### References for Next Time:
+
+- [TailwindCSS Docs](https://tailwindcss.com/docs/installation/framework-guides/nextjs)
+- [Clerk Middleware](https://clerk.com/docs/references/nextjs/clerk-middleware)
