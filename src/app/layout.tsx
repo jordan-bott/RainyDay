@@ -5,6 +5,7 @@ import {
   SignedIn,
   SignedOut,
   UserButton,
+  OrganizationSwitcher,
 } from '@clerk/nextjs'
 import { ThemeProvider } from '../providers/theme-provider'
 import ClerkProvider from '../providers/clerk-provider'
@@ -41,7 +42,11 @@ export default function RootLayout({
                 <SignUpButton />
               </SignedOut>
               <SignedIn>
-                <UserButton />
+                <OrganizationSwitcher />
+                <UserButton
+                  userProfileMode="navigation"
+                  userProfileUrl="/dashboard"
+                />
               </SignedIn>
             </header>
             <div className="bg-lightBG dark:bg-darkBG h-[92vh] w-[100vw] overflow-hidden">

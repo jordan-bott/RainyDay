@@ -3,7 +3,6 @@ const Squiggles = () => {
   return (
     <>
       {[...Array(10)].map((_, i) => {
-        console.log(i)
         return <div className="squiggle" key={i}></div>
       })}
     </>
