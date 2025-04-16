@@ -20,117 +20,105 @@ button {
   cursor: pointer;
 }
 
-.squiggle-one {
+.squiggle {
   position: relative;
   width: 200px;
   height: 50px;
-  top: 12vh;
-  left: 5vw;
-  rotate: 145deg;
-}
 
-.squiggle-two {
-  position: relative;
-  width: 200px;
-  height: 50px;
-  top: 75vh;
-  left: 80vw;
-  rotate: 215deg;
-}
+  &:nth-child(1) {
+    top: 12vh;
+    left: 5vw;
+    rotate: 145deg;
+  }
 
-.squiggle-three {
-  position: relative;
-  width: 200px;
-  height: 50px;
-  top: 30vh;
-  left: 20vw;
-  rotate: 215deg;
-}
+  &:nth-child(2) {
+    top: 75vh;
+    left: 80vw;
+    rotate: 215deg;
+  }
 
-.squiggle-four {
-  position: relative;
-  width: 200px;
-  height: 50px;
-  top: 70vh;
-  left: -2vw;
-  rotate: 145deg;
-}
+  &:nth-child(3) {
+    top: 30vh;
+    left: 20vw;
+    rotate: 215deg;
+  }
 
-.squiggle-five {
-  position: relative;
-  width: 200px;
-  height: 50px;
-  top: -22vh;
-  left: 32vw;
-  rotate: 215deg;
-}
+  &:nth-child(4) {
+    top: 70vh;
+    left: -2vw;
+    rotate: 145deg;
+  }
 
-.squiggle-six {
-  position: relative;
-  width: 200px;
-  height: 50px;
-  top: -14vh;
-  left: 62vw;
-  rotate: 145deg;
-}
+  &:nth-child(5) {
+    top: -22vh;
+    left: 32vw;
+    rotate: 215deg;
+  }
 
-.squiggle-seven {
-  position: relative;
-  width: 200px;
-  height: 50px;
-  top: 40vh;
-  left: 54vw;
-  rotate: 215deg;
-}
-.squiggle-eight {
-  position: relative;
-  width: 200px;
-  height: 50px;
-  top: 10vh;
-  left: 76vw;
-  rotate: 145deg;
-}
+  &:nth-child(6) {
+    top: -14vh;
+    left: 62vw;
+    rotate: 145deg;
+  }
 
-.squiggle-nine {
-  position: relative;
-  width: 200px;
-  height: 50px;
-  top: -33vh;
-  left: 87vw;
-  rotate: 215deg;
-}
+  &:nth-child(7) {
+    top: 40vh;
+    left: 54vw;
+    rotate: 215deg;
+  }
+  &:nth-child(8) {
+    top: 10vh;
+    left: 76vw;
+    rotate: 145deg;
+  }
 
-.squiggle-ten {
-  position: relative;
-  width: 200px;
-  height: 50px;
-  top: 30vh;
-  left: 25vw;
-  rotate: 145deg;
-}
+  &:nth-child(9) {
+    top: -33vh;
+    left: 87vw;
+    rotate: 215deg;
+  }
 
-.curve {
-  position: absolute;
-  width: 180px;
-  height: 20px;
-  background: radial-gradient(
-    16px,
-    transparent,
-    transparent 4px,
-    rgba(71, 68, 255) 4px,
-    rgba(71, 68, 255) 10px,
-    transparent 11px
-  );
-  background-size: 30px 40px;
-  overflow: hidden;
-  z-index: -20;
-}
+  &:nth-child(10) {
+    position: relative;
+    width: 200px;
+    height: 50px;
+    top: 30vh;
+    left: 25vw;
+    rotate: 145deg;
+  }
 
-.curve2 {
-  /* Offset to make squigglies line up */
-  top: 20px;
-  left: 15px;
-  width: 180px;
-  background-position: 0px -20px;
-  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 20px;
+    background: radial-gradient(
+      16px,
+      transparent,
+      transparent 4px,
+      rgba(71, 68, 255) 4px,
+      rgba(71, 68, 255) 10px,
+      transparent 11px
+    );
+    background-size: 30px 40px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 20px;
+    background: radial-gradient(
+      16px,
+      transparent,
+      transparent 4px,
+      rgba(71, 68, 255) 4px,
+      rgba(71, 68, 255) 10px,
+      transparent 11px
+    );
+    background-size: 30px 40px;
+    top: 20px;
+    left: 15px;
+    width: 180px;
+    background-position: 0px -20px;
+  }
 }
