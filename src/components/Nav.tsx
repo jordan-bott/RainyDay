@@ -1,6 +1,7 @@
 'use client'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 const Nav = () => {
   const [mounted, setMounted] = useState(false)
@@ -16,11 +17,14 @@ const Nav = () => {
   }
 
   return (
-    <select value={theme} onChange={(e) => setTheme(e.target.value)}>
-      <option value="system">System</option>
-      <option value="dark">Dark</option>
-      <option value="light">Light</option>
-    </select>
+    <>
+      <Link href="/">Home</Link>
+      <select value={theme} onChange={(e) => setTheme(e.target.value)}>
+        <option value="system">System</option>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </>
   )
 }
 
