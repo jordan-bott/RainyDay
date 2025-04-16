@@ -20,6 +20,7 @@ button {
   cursor: pointer;
 }
 
+/* placement & look of squiggles in background */
 .squiggle {
   position: relative;
   width: 200px;
