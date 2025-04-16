@@ -5,7 +5,9 @@
 @theme {
   --color-accent: #4744ff;
   --color-darkBG: #2d2b2f;
+  --color-darkFG: #3e445d;
   --color-lightBG: #f9fff9;
+  --color-lightFG: #f4f6ff;
 }
 
 :root {
@@ -25,6 +27,13 @@ button {
   box-shadow: rgba(0, 0, 0, 0.08) 0px 5px 15px 0px,
     rgba(25, 28, 33, 0.2) 0px 15px 35px -5px,
     rgba(0, 0, 0, 0.07) 0px 0px 0px 1px;
+}
+
+/* box shadow that matches clerk components */
+.shadow-blue {
+  box-shadow: rgba(71, 68, 255, 0.08) 0px 5px 15px 0px,
+    rgba(71, 68, 255, 0.2) 0px 15px 35px -5px,
+    rgba(71, 68, 255, 0.07) 0px 0px 0px 1px;
 }
 
 /* placement & look of squiggles in background */
