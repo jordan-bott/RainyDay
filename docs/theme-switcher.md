@@ -3,7 +3,7 @@
 Theme switchers allow users to toggle between light mode and dark mode.
 
 > [!TIP]
-> Before you start ensure you have created your Next. js application, and implemented Clerk.
+> Before you start, ensure you have created your Next. js application, and implemented Clerk.
 > Follow Clerk's [Next.js Quickstart Guide](https://clerk.com/docs/quickstarts/nextjs) to get started.
 
 ## Install `next-themes`
@@ -205,11 +205,19 @@ Clear your `globals.css` file of all stylings. You can leave `@import 'tailwindc
 
 > For TailwindCSS Users:
 
-In `globals.css` add `@custom-variant dark (&:where(.dark, .dark *));` below `@import 'tailwindcss';`. This will allow you to add `dark:` before TailwindCSS classes to be triggered when the dark theme is active.
-
-1. Create a `tailwind.config.ts` file in the root level of your app
-
-2. Copy and paste the following into `tailwind.config.ts`:
+> In `globals.css` add `@custom-variant dark (&:where(.dark, .dark *));` below `@import 'tailwindcss';`. This will allow you to add `dark:` before TailwindCSS classes to be triggered when the dark theme is active. Example `globals.css` file below:
+>
+> ```css
+> @import 'tailwindcss';
+>
+> @custom-variant dark (&:where(.dark, .dark *));
+> ```
+>
+> #### Create `tailwind.config.ts` file
+>
+> 1.  Create a `tailwind.config.ts` file in the root level of your app
+>
+> 2.  Copy and paste the following into `tailwind.config.ts`:
 
 ```ts
 import type { Config } from 'tailwindcss'
