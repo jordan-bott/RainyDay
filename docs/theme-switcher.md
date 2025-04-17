@@ -61,7 +61,7 @@ Ensure your `<ThemeProvider>` wraps your `<ClerkProvider>` in order to switch Cl
 
 Include the props `attribute="class"` and `enableSystem` on your `<ThemeProvider>` opening tag.
 
-Copy and paste the following into your `layout.tsx` file in your `app` directory. You can replace the existing code with the following, or simply add in the opening and closing `<ThemeProvider>` tags.
+Copy and paste the following into your `layout.tsx` file in your `app` directory. You can replace the existing code with the following, or simply add in the opening and closing `<ThemeProvider>` tags wrapping your existing `<ClerkProvider>`.
 
 ```typescript
 // /app/layout.tsx
@@ -122,3 +122,28 @@ export default function RootLayout({
   )
 }
 ```
+
+## Create a simple theme switcher with [`useTheme()`](https://github.com/pacocoursey/next-themes?tab=readme-ov-file#usetheme)
+
+The `useTheme()` hook from `next-themes` provides access to both setting the theme, and viewing the current theme.
+
+> [!NOTE]
+> Any UI can be used for the theme switcher so long as `setTheme()` is used with an event handler such as `onClick`. The following example uses two buttons: one for light mode, and one for dark mode to control which theme is used by the app.
+
+```tsx
+import { useTheme } from 'next-themes'
+
+const ThemeChanger = () => {
+  const { theme, setTheme } = useTheme()
+
+  return (
+    <div>
+      The current theme is: {theme}
+      <button onClick={() => setTheme('light')}>Light Mode</button>
+      <button onClick={() => setTheme('dark')}>Dark Mode</button>
+    </div>
+  )
+}
+```
+
+You can place your `ThemeChanger` component wherever you would like in your application. Somewhere within the header is a common choice.
