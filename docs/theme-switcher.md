@@ -16,16 +16,16 @@ npm install next-themes
 yarn add next-themes
 ```
 
-## To your `providers` directory, add `theme-provider.tsx`
+## Create `theme-provider.tsx`
 
 The theme provider will facilitate the switching of themes on all of its children.
 
 1. Create a `theme-provider.tsx` file
 
-   This will be in the same location as your `clerk-provider.tsx` file
-
    - If you're using the `/src` directory, create `theme-provider.tsx` in `/src/providers`
    - If you're not using the `/src` directory, create `theme-provider.tsx` in `/providers`
+
+   For reference, your `providers` directory should be the same level as your `/app` directory.
 
 2. Copy and paste the following file into your `theme-provider.tsx` file. This creates your `<ThemeProvider>` component using `next-themes` `NextThemeProvider` and ensures that content is not rendered until after the first client-side mount. This prevents a hydration error.
 
@@ -63,18 +63,17 @@ Include the props `attribute="class"` and `enableSystem` on your `<ThemeProvider
 
 Copy and paste the following into your `layout.tsx` file in your `app` directory. You can replace the existing code with the following, or simply add in the opening and closing `<ThemeProvider>` tags wrapping your existing `<ClerkProvider>`.
 
-```typescript
+```tsx
 // /app/layout.tsx
 import type { Metadata } from 'next'
 import {
+  ClerkProvider,
   SignInButton,
   SignUpButton,
   SignedIn,
   SignedOut,
   UserButton,
 } from '@clerk/nextjs'
-import { ThemeProvider } from '../providers/theme-provider'
-import ClerkProvider from '../providers/clerk-provider'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
@@ -99,12 +98,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider attribute="class" enableSystem>
-          <ClerkProvider>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <ThemeProvider attribute="class" enableSystem>
             <header className="flex justify-end items-center p-4 gap-4 h-16">
               <SignedOut>
                 <SignInButton />
@@ -115,10 +114,10 @@ export default function RootLayout({
               </SignedIn>
             </header>
             {children}
-          </ClerkProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
 ```
@@ -144,6 +143,8 @@ const ThemeChanger = () => {
     </div>
   )
 }
+
+export default ThemeChanger
 ```
 
 You can place your `ThemeChanger` component wherever you would like in your application. Somewhere within the header is a common choice.
