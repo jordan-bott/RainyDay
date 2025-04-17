@@ -203,8 +203,8 @@ When creating your Next.js app some CSS styles were automatically added to `glob
 
 Clear your `globals.css` file of all stylings. You can leave `@import 'tailwindcss';` at the top if you are using TailwindCSS.
 
-> For TailwindCSS Users:
-
+> ### For TailwindCSS Users:
+>
 > In `globals.css` add `@custom-variant dark (&:where(.dark, .dark *));` below `@import 'tailwindcss';`. This will allow you to add `dark:` before TailwindCSS classes to be triggered when the dark theme is active. Example `globals.css` file below:
 >
 > ```css
@@ -218,23 +218,23 @@ Clear your `globals.css` file of all stylings. You can leave `@import 'tailwindc
 > 1.  Create a `tailwind.config.ts` file in the root level of your app
 >
 > 2.  Copy and paste the following into `tailwind.config.ts`:
-
-```ts
-import type { Config } from 'tailwindcss'
-
-const config = {
-  content: ['./src/app/**/*.{js,ts,jsx,tsx,mdx}'],
-
-  theme: {
-    extend: {},
-    colors: {},
-  },
-  plugins: [],
-  darkMode: 'class',
-} satisfies Config
-
-export default config
-```
+>
+> ```ts
+> import type { Config } from 'tailwindcss'
+>
+> const config = {
+>   content: ['./src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+>
+>   theme: {
+>     extend: {},
+>     colors: {},
+>   },
+>   plugins: [],
+>   darkMode: 'class',
+> } satisfies Config
+>
+> export default config
+> ```
 
 ## Test out your theme switcher!
 
