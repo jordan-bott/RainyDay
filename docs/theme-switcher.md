@@ -2,4 +2,5 @@
 
 > [!TIP]
 > Before you start ensure you have created your Next. js application, and implemented Clerk.
-> Follow Clerk's [Next.js Quickstart Guide](https://clerk.com/docs/quickstarts/nextjs)
+
+> Follow Clerk's [Next.js Quickstart Guide](https://clerk.com/docs/quickstarts/nextjs) to get started.
