@@ -3,7 +3,7 @@
 Theme switchers allow users to toggle between light mode and dark mode.
 
 > [!TIP]
-> Before you start, ensure you have created your Next. js application, and implemented Clerk.
+> Before you start, ensure you've created your Next.js application, and implemented Clerk.
 > Follow Clerk's [Next.js Quickstart Guide](https://clerk.com/docs/quickstarts/nextjs) to get started.
 
 ## Install `next-themes`
@@ -43,7 +43,7 @@ const ThemeChanger = () => {
 export default ThemeChanger
 ```
 
-You can place your `ThemeChanger` component wherever you would like in your application. Somewhere within the header is a common choice.
+You can place your `ThemeChanger` component wherever you would like in your app. Somewhere within the header is a common choice.
 
 ## Create `theme-provider.tsx`
 
@@ -58,7 +58,7 @@ The theme provider will facilitate the switching of themes on all of its childre
 
 2. Create a `theme-provider.tsx` file in your `providers` directory
 
-3. Copy and paste the following file into your `theme-provider.tsx` file. This creates your `<ThemeProvider>` component using `next-themes` `NextThemeProvider` and ensures that content is not rendered until after the first client-side mount. This prevents a hydration error.
+3. Copy and paste the following file into your `theme-provider.tsx` file. This creates your `<ThemeProvider>` component using `next-themes` `NextThemeProvider` and ensures that content isn't rendered until after the first client-side mount. This prevents a hydration error.
 
    ```typescript
    // providers/theme-provider.tsx
@@ -98,11 +98,11 @@ npm install @clerk/themes
 
 First `useTheme()` will be called to determine which theme is currently active.
 
-Because of this, we must modify the `<ClerkProvider>` in its own file. The root layout contains `metadata` which must be rendered in a server component. However, hooks (such as `useTheme()`) must be rendered in a client component.
+Because of this, `<ClerkProvider>` must be modified in its own file. The root layout contains `metadata` which must be rendered in a server component. However, hooks (such as `useTheme()`) must be rendered in a client component.
 
 1. Create a `clerk-provider.tsx` file in your `providers` directory
 
-2. Copy and paste the following file into your `clerk-provider.tsx` file. This will modify the `<ClerkProvider>` component to change themes based on the current theme. Clerk's `dark` theme is triggered when the theme selected is `"dark"` and is the default theme (a light theme) when the theme is not `"dark"`.
+2. Copy and paste the following file into your `clerk-provider.tsx` file. This will modify the `<ClerkProvider>` component to change themes based on the current theme. Clerk's `dark` theme is triggered when the theme selected is `"dark"` and is the default theme (a light theme) when the theme isn't `"dark"`.
 
 ```tsx
 // providers/clerk-provider.tsx
@@ -130,8 +130,6 @@ export default function _ClerkProvider({
 ```
 
 ## To your app layout, add `<ThemeProvider>` as the first child of your `<body>`
-
-Ensure your `<ThemeProvider>` wraps your `<ClerkProvider>` in order to switch Clerk themes with your theme switcher.
 
 Include the props `attribute="class"` and `enableSystem` on your `<ThemeProvider>` opening tag.
 
@@ -246,4 +244,5 @@ npm run dev
 
 You've created a basic theme switcher! From here you can finish implementing Clerk pages and have them seamlessly change between themes with the rest of your app.
 
-Note: To have your theme switcher work on `<SignIn>` and `<SignUp>` [create a custom sign-in or sign-up page](https://clerk.com/docs/references/nextjs/custom-sign-in-or-up-page)
+> [NOTE!]
+> To have your theme switcher work on `<SignIn>` and `<SignUp>` [create a custom sign-in or sign-up page](https://clerk.com/docs/references/nextjs/custom-sign-in-or-up-page)
