@@ -16,18 +16,47 @@ npm install next-themes
 yarn add next-themes
 ```
 
+## Create a simple theme switcher with [`useTheme()`](https://github.com/pacocoursey/next-themes?tab=readme-ov-file#usetheme)
+
+The `useTheme()` hook from `next-themes` provides access to both setting the theme, and viewing the current theme.
+
+> [!NOTE]
+> Any UI can be used for the theme switcher so long as `setTheme()` is used with an event handler such as `onClick`. The following example uses two buttons: one for light mode, and one for dark mode to control which theme is used by the app.
+
+```tsx
+import { useTheme } from 'next-themes'
+
+const ThemeChanger = () => {
+  const { theme, setTheme } = useTheme()
+
+  return (
+    <div>
+      The current theme is: {theme}
+      <button onClick={() => setTheme('light')}>Light Mode</button>
+      <button onClick={() => setTheme('dark')}>Dark Mode</button>
+    </div>
+  )
+}
+
+export default ThemeChanger
+```
+
+You can place your `ThemeChanger` component wherever you would like in your application. Somewhere within the header is a common choice.
+
 ## Create `theme-provider.tsx`
 
 The theme provider will facilitate the switching of themes on all of its children.
 
-1. Create a `theme-provider.tsx` file
+1. Create a `providers` directory
 
-   - If you're using the `/src` directory, create `theme-provider.tsx` in `/src/providers`
-   - If you're not using the `/src` directory, create `theme-provider.tsx` in `/providers`
+   - If you're using the `/src` directory, create `providers` in `/src`
+   - If you're not using the `/src` directory, create `providers` in the root level
 
    For reference, your `providers` directory should be the same level as your `/app` directory.
 
-2. Copy and paste the following file into your `theme-provider.tsx` file. This creates your `<ThemeProvider>` component using `next-themes` `NextThemeProvider` and ensures that content is not rendered until after the first client-side mount. This prevents a hydration error.
+2. Create a `theme-provider.tsx` file in your `providers` directory
+
+3. Copy and paste the following file into your `theme-provider.tsx` file. This creates your `<ThemeProvider>` component using `next-themes` `NextThemeProvider` and ensures that content is not rendered until after the first client-side mount. This prevents a hydration error.
 
    ```typescript
    // providers/theme-provider.tsx
@@ -55,19 +84,52 @@ The theme provider will facilitate the switching of themes on all of its childre
    }
    ```
 
+## Modify `<ClerkProvider>` to change themes with `useTheme
+
+First `useTheme()` will be called to determine which theme is currently active.
+
+Because of this, we must modify the `<ClerkProvider>` in its own file. The root layout contains `metadata` which must be rendered in a server component. However, hooks (such as `useTheme()`) must be rendered in a client component.
+
+1. Create a `clerk-provider.tsx` file in your `providers` directory
+
+2. Copy and paste the following file into your `clerk-provider.tsx` file. This will modify the `<ClerkProvider>` component to change themes based on the current theme. Clerk's `dark` theme is triggered when the theme selected is `"dark"` and is the default theme (a light theme) when the theme is not `"dark"`.
+
+```tsx
+'use client'
+
+import { ClerkProvider } from '@clerk/nextjs'
+import { dark } from '@clerk/themes'
+import { useTheme } from 'next-themes'
+
+export default function _ClerkProvider({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const { resolvedTheme } = useTheme()
+
+  return (
+    <ClerkProvider
+      appearance={resolvedTheme === 'dark' ? { baseTheme: dark } : undefined}
+    >
+      {children}
+    </ClerkProvider>
+  )
+}
+```
+
 ## To your app layout, add `<ThemeProvider>` as the first child of your `<body>`
 
 Ensure your `<ThemeProvider>` wraps your `<ClerkProvider>` in order to switch Clerk themes with your theme switcher.
 
 Include the props `attribute="class"` and `enableSystem` on your `<ThemeProvider>` opening tag.
 
-Copy and paste the following into your `layout.tsx` file in your `app` directory. You can replace the existing code with the following, or simply add in the opening and closing `<ThemeProvider>` tags wrapping your existing `<ClerkProvider>`.
+Copy and paste the following into your `layout.tsx` file in your `app` directory. You can replace the existing code with the following, or simply add in the opening and closing `<ThemeProvider>` as the first child of your `<body>` tag, and change your `<ClerkProvider>` import to use your newly modified `<ClerkProvider>` in your `providers` directory.
 
 ```tsx
 // /app/layout.tsx
 import type { Metadata } from 'next'
 import {
-  ClerkProvider,
   SignInButton,
   SignUpButton,
   SignedIn,
@@ -76,6 +138,8 @@ import {
 } from '@clerk/nextjs'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
+import { ThemeProvider } from '@/providers/theme-provider'
+import ClerkProvider from '../providers/clerk-provider'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
