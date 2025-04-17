@@ -24,6 +24,8 @@ The `useTheme()` hook from `next-themes` provides access to both setting the the
 > Any UI can be used for the theme switcher so long as `setTheme()` is used with an event handler such as `onClick`. The following example uses two buttons: one for light mode, and one for dark mode to control which theme is used by the app.
 
 ```tsx
+'use client'
+
 import { useTheme } from 'next-themes'
 
 const ThemeChanger = () => {
@@ -84,7 +86,15 @@ The theme provider will facilitate the switching of themes on all of its childre
    }
    ```
 
-## Modify `<ClerkProvider>` to change themes with `useTheme
+## Install the `@clerk/themes` package
+
+See the Clerk Theme [reference](https://clerk.com/docs/customization/themes) for more information on how to customize themes.
+
+```shell
+npm install @clerk/themes
+```
+
+## Modify `<ClerkProvider>` to change themes with `useTheme()`
 
 First `useTheme()` will be called to determine which theme is currently active.
 
@@ -95,6 +105,7 @@ Because of this, we must modify the `<ClerkProvider>` in its own file. The root 
 2. Copy and paste the following file into your `clerk-provider.tsx` file. This will modify the `<ClerkProvider>` component to change themes based on the current theme. Clerk's `dark` theme is triggered when the theme selected is `"dark"` and is the default theme (a light theme) when the theme is not `"dark"`.
 
 ```tsx
+// providers/clerk-provider.tsx
 'use client'
 
 import { ClerkProvider } from '@clerk/nextjs'
@@ -196,7 +207,9 @@ Clear your `globals.css` file of all stylings. You can leave `@import 'tailwindc
 
 In `globals.css` add `@custom-variant dark (&:where(.dark, .dark *));` below `@import 'tailwindcss';`. This will allow you to add `dark:` before TailwindCSS classes to be triggered when the dark theme is active.
 
-Copy and paste the following into `tailwind.config.ts`:
+1. Create a `tailwind.config.ts` file in the root level of your app
+
+2. Copy and paste the following into `tailwind.config.ts`:
 
 ```ts
 import type { Config } from 'tailwindcss'
@@ -217,4 +230,12 @@ export default config
 
 ## Test out your theme switcher!
 
+If your server isn't running, start it with the following in your terminal:
+
+```shell
+npm run dev
+```
+
 You've created a basic theme switcher! From here you can finish implementing Clerk pages and have them seamlessly change between themes with the rest of your app.
+
+Note: To have your theme switcher work on `<SignIn>` and `<SignUp>` [create a custom sign-in or sign-up page](https://clerk.com/docs/references/nextjs/custom-sign-in-or-up-page)
