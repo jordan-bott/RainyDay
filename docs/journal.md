@@ -70,21 +70,21 @@ Not yet 😬
 
 - Building out the `/dashboard` page. It's protected, and redirects to sign-in when someone is not authenticated.
   - Shows the session ID using `useSession()` hook written by Clerk
-
-**AH-HA!💡**
+- Created a very basic, unproteted home page
+- Wrote the tutorial for how to implement a theme switcher using `next-themes` and `clerk`
+  - Really glad I tested walking through my tutorial a few times! Found some items that weren't working right the first iteration or two of the tutorial.
+  - I tried to use .mdx instead of a .md file and to implement Clerk's styling with `<Step>` among other styles, but after fighting it for a bit decided to make a .md file and get close to Clerk's styling without using the extra features of a .mdx file. If I'm understanding correctly, I think I would need to deploy the docs to see all of the functionality of a .mdx file (since Github doesn't render it the same as it does a .md file), so I opted for something that I could format nicely, and have readable directly in Github instead. I would have liked to mimic the Clerk UI a bit more closely on the doc, but I'm happy with how it turned out.
 
 **🎉 Celebrations 🎉**
 
-### Bugs encountered 🐛🐞🐜 :
-
-🪲
-
-**\~Solution~**
-
-### References Used Today:
+Got lots working today! Fun to see it all come together.
 
 - [useSession() Clerk](https://clerk.com/docs/hooks/use-session)
 - [TailwindCSS Docs](https://tailwindcss.com/docs/installation/framework-guides/nextjs)
+- [Clerk Style Guide](https://github.com/clerk/clerk-docs/blob/main/styleguides/STYLEGUIDE.md)
+- [next-themes docs](https://github.com/pacocoursey/next-themes?tab=readme-ov-file#next-themes--)
+- [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
+- [Clerk Themes](https://clerk.com/docs/customization/themes)
 
 ### Any Blockers:
 
@@ -92,10 +92,10 @@ Not yet 😬
 
 ### Next I'm working on:
 
-- Homepage
-- Tutorial for a Theme Switcher using Clerk
+- Proof reading
+- Final touches
+- Turning in!
 
 ### References for Next Time:
 
-- [TailwindCSS Docs](https://tailwindcss.com/docs/installation/framework-guides/nextjs)
-- [Clerk Middleware](https://clerk.com/docs/references/nextjs/clerk-middleware)
+- [Clerk Style Guide](https://github.com/clerk/clerk-docs/blob/main/styleguides/STYLEGUIDE.md)
