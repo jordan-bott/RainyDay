@@ -186,29 +186,35 @@ export default function RootLayout({
 }
 ```
 
-## Create a simple theme switcher with [`useTheme()`](https://github.com/pacocoursey/next-themes?tab=readme-ov-file#usetheme)
+## Remove boilerplate CSS
 
-The `useTheme()` hook from `next-themes` provides access to both setting the theme, and viewing the current theme.
+When creating your Next.js app some CSS styles were automatically added to `globals.css`. These will prevent the desired theme switching behavior.
 
-> [!NOTE]
-> Any UI can be used for the theme switcher so long as `setTheme()` is used with an event handler such as `onClick`. The following example uses two buttons: one for light mode, and one for dark mode to control which theme is used by the app.
+Clear your `globals.css` file of all stylings. You can leave `@import 'tailwindcss';` at the top if you are using TailwindCSS.
 
-```tsx
-import { useTheme } from 'next-themes'
+> For TailwindCSS Users:
 
-const ThemeChanger = () => {
-  const { theme, setTheme } = useTheme()
+In `globals.css` add `@custom-variant dark (&:where(.dark, .dark *));` below `@import 'tailwindcss';`. This will allow you to add `dark:` before TailwindCSS classes to be triggered when the dark theme is active.
 
-  return (
-    <div>
-      The current theme is: {theme}
-      <button onClick={() => setTheme('light')}>Light Mode</button>
-      <button onClick={() => setTheme('dark')}>Dark Mode</button>
-    </div>
-  )
-}
+Copy and paste the following into `tailwind.config.ts`:
 
-export default ThemeChanger
+```ts
+import type { Config } from 'tailwindcss'
+
+const config = {
+  content: ['./src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+
+  theme: {
+    extend: {},
+    colors: {},
+  },
+  plugins: [],
+  darkMode: 'class',
+} satisfies Config
+
+export default config
 ```
 
-You can place your `ThemeChanger` component wherever you would like in your application. Somewhere within the header is a common choice.
+## Test out your theme switcher!
+
+You've created a basic theme switcher! From here you can finish implementing Clerk pages and have them seamlessly change between themes with the rest of your app.
