@@ -6,7 +6,7 @@ import { Suspense } from 'react'
 
 const Dashboard = () => {
   const { session } = useSession()
-  const { organization } = useOrganization()
+  const { organization, membership } = useOrganization()
 
   console.log(session)
 
@@ -21,11 +21,13 @@ const Dashboard = () => {
             Session ID: {session?.id}
           </Suspense>
         </div>
-        <div>
-          <Suspense fallback={<p>Organization ID loading ...</p>}>
-            Organization ID: {organization?.id}
-          </Suspense>
-        </div>
+        {membership ? (
+          <div>
+            <Suspense fallback={<p>Organization ID loading ...</p>}>
+              Organization ID: {organization?.id}
+            </Suspense>
+          </div>
+        ) : null}
       </div>
     </div>
   )
