@@ -244,5 +244,5 @@ npm run dev
 
 You've created a basic theme switcher! From here you can finish implementing Clerk pages and have them seamlessly change between themes with the rest of your app.
 
-> [NOTE!]
+> [!NOTE]
 > To have your theme switcher work on `<SignInButton />` and `<SignUpButton />` [create a custom sign-in or sign-up page](https://clerk.com/docs/references/nextjs/custom-sign-in-or-up-page) or set the mode property to `mode="modal"` on `<SignInButton />` and `<SignUpButton />`.
