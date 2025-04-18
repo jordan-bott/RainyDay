@@ -37,17 +37,6 @@ export default function RootLayout({
           <ClerkProvider>
             <header className="flex justify-end items-center p-4 gap-4 h-[8vh] bg-lightBG dark:bg-darkBG">
               <Nav />
-              <SignedOut>
-                <SignInButton />
-                <SignUpButton />
-              </SignedOut>
-              <SignedIn>
-                <OrganizationSwitcher />
-                <UserButton
-                  userProfileMode="navigation"
-                  userProfileUrl="/dashboard"
-                />
-              </SignedIn>
             </header>
             <div className="bg-lightBG dark:bg-darkBG h-[92vh] w-[100vw] overflow-hidden">
               <Squiggles />

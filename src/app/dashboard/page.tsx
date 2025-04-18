@@ -1,11 +1,12 @@
 'use client'
 
 import { UserProfile } from '@clerk/clerk-react'
-import { useSession } from '@clerk/clerk-react'
+import { useSession, useOrganization } from '@clerk/clerk-react'
 import { Suspense } from 'react'
 
 const Dashboard = () => {
   const { session } = useSession()
+  const { organization } = useOrganization()
 
   console.log(session)
 
@@ -14,10 +15,17 @@ const Dashboard = () => {
       <div className="self-center">
         <UserProfile />
       </div>
-      <div className="text-sm self-center mt-12 shadow bg-[#ffffff] text-black dark:text-white dark:bg-[#1e1f24] rounded-lg p-2">
-        <Suspense fallback={<p>Session ID loading ...</p>}>
-          Session ID: {session?.id}
-        </Suspense>
+      <div className="flex flex-col text-sm self-center mt-12 shadow bg-[#ffffff] text-black dark:text-white dark:bg-[#1e1f24] rounded-lg p-2">
+        <div>
+          <Suspense fallback={<p>Session ID loading ...</p>}>
+            Session ID: {session?.id}
+          </Suspense>
+        </div>
+        <div>
+          <Suspense fallback={<p>Organization ID loading ...</p>}>
+            Organization ID: {organization?.id}
+          </Suspense>
+        </div>
       </div>
     </div>
   )
