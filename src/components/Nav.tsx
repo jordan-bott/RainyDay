@@ -30,10 +30,26 @@ const Nav = () => {
       <SignedIn>
         <Link href="/dashboard">Dashboard</Link>
       </SignedIn>
-      <select value={theme} onChange={(e) => setTheme(e.target.value)}>
-        <option value="system">System</option>
-        <option value="dark">Dark</option>
-        <option value="light">Light</option>
+      <select
+        className="rounded-xl"
+        value={theme}
+        onChange={(e) => setTheme(e.target.value)}
+      >
+        <option
+          value="light"
+          className="flex justify-center px-2 py-1 rounded-tl-xl rounded-tr-xl"
+        >
+          <span className="icon" aria-hidden="true">
+            🌞
+          </span>
+          <span> Light</span>
+        </option>
+        <option value="dark" className="flex justify-center px-2 py-1">
+          <span className="icon" aria-hidden="true">
+            🌙
+          </span>
+          <span> Dark</span>
+        </option>
       </select>
       <SignedIn>
         <OrganizationSwitcher />

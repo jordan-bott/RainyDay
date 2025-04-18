@@ -99,3 +99,13 @@ Not yet 😬
 ### References for Next Time:
 
 - [Clerk Style Guide](https://github.com/clerk/clerk-docs/blob/main/styleguides/STYLEGUIDE.md)
+
+### Final Thoughts
+
+Overall I thought this was a great project! Next.js has been on my list to learn for a long time, I had just never taken the deep dive to learn it. Because of that, I spent a large chunk of the week going through a tutorial on Frontend Masters to learn how Next.js works. If I could go back, I think I could have spent less time on a Next.js tutorial, as the Next.js and Clerk docs made it very easy to spin up an application. With the providers given, and the next-themes set up, it was relatively simple to get everything going. There were some important things to understand about Next.js such as when you need to have `'use client'` at the top, the file structure creating the routes, and the layout/page functionalities, but overall you can almost start a Next.js app with Clerk without any Next.js knowledge!
+
+The only piece of the Clerk implementation that I found to be a bit tricky was the `<SignInButton />` and `<SignUpButton />` with the theme switcher. With the default settings and only using the button, and not the `<SignUp />` or `<SignIn />` components the page that is brought up when clicking the `<SignInButton />` or `<SignUpButton />` is not impacted by the theme switcher. The fix for this is to either create custom Sign In and Sign Up pages using the `<SignUp />` and `<SignIn />` components, or to set the mode property on `<SignInButton />` and `<SignUpButton />` to `mode="modal"`.
+
+With more time on the project, I would have loved to have implemented the functionality of the app outside of the Clerk pieces. My idea for this app was a plant watering tracker that would allow you to both log when you watered, and set a watering schedule to be notified when it has been longer than you want between waterings for a particular plant. I'm also not very happy with the Session ID and Organization ID placement on my dashboard page. I would have loved to make the dashboard a bit more customized, and fitting within the "Rainy Day" theme, but I'm happy with how it looks within the time I had.
+
+I'm quite happy with how my squiggly lines turned out. I've been pushing myself to learn a bit more fun CSS where you can make designs, and I wanted a simple, sleek, but fun design for the background of this app. They were definitely a stretch for me as it was something else new to learn, but I really wanted to learn a lot from this experience and push myself to try things that I hadn't before!

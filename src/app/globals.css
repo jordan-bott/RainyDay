@@ -11,15 +11,44 @@
 }
 
 :root {
-  --fg: #6f2de7,
-    --bg: #f3ecff
+  --fg: #f4f6ff,
+    --bg: #f9fff9
     .dark {
     --bg: #2d2b2f;
+    --fg: #1e1f24;
   }
 }
 
 button {
   cursor: pointer;
+}
+
+select,
+::picker(select) {
+  appearance: base-select;
+  border: none;
+}
+
+select::picker-icon {
+  color: #4744ff;
+  transition: 0.4s rotate;
+}
+
+select:open::picker-icon {
+  rotate: 180deg;
+}
+
+option:first-of-type {
+  border-radius: 8px 8px 0 0;
+  border-bottom: none;
+}
+
+option:last-of-type {
+  border-radius: 0 0 8px 8px;
+}
+
+option {
+  border: 2px solid #4744ff;
 }
 
 /* box shadow that matches clerk components */
